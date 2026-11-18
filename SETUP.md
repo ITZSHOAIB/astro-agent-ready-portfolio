@@ -8,7 +8,7 @@ Open this folder in Claude Code, Codex, Cursor or similar and say:
 
 > Set this up as my portfolio. Follow AGENTS.md.
 
-It will ask for your details, edit `content/`, and tell you what is left for you (GitHub, Cloudflare, DNS). Have these ready: name, site address, bio, links, work history, a square photo and a resume PDF.
+It will ask for your details, edit `content/`, and tell you what is left for you (GitHub, hosting, DNS). Have these ready: name, site address, bio, links, work history, a square photo and a resume PDF.
 
 ## By hand
 

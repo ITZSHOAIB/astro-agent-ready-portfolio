@@ -11,7 +11,7 @@ export const profile: Profile = {
   domain: "alex-rivera.example",
   role: "Software Engineer",
   company: "Northwind Labs",
-  // Optional. Shown in the hero and the MCP summary; delete the line to hide it.
+  // Optional. Shown in the hero and the llms.txt summary; delete the line to hide it.
   location: "Lisbon, remote",
   email: "alex@alex-rivera.example",
   // One line under your name; also used by the author note under posts.

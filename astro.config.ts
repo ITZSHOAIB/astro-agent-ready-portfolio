@@ -1,4 +1,3 @@
-import cloudflare from "@astrojs/cloudflare";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import { fileURLToPath } from "node:url";
@@ -15,13 +14,6 @@ export default defineConfig({
   trailingSlash: "never",
   build: { format: "file" },
   output: "static",
-  adapter: cloudflare({
-    // og.png is drawn with satori and the native resvg binding, which only run in Node.
-    prerenderEnvironment: "node",
-    imageService: "passthrough",
-  }),
-  // Nothing uses sessions; without this the adapter adds a KV binding to provision.
-  session: false,
   integrations: [blogRedirects()],
   devToolbar: { enabled: false },
   vite: {

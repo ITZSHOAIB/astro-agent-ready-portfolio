@@ -3,7 +3,7 @@
 //   ::figure harness-anatomy
 //
 // The figures themselves are registered in content/figures/index.ts. Feeds,
-// the raw .md copy, llms-full.txt and the MCP server cannot run components,
+// the raw .md copy and llms-full.txt cannot run components,
 // so they use each figure's caption and description instead.
 export type FigureMeta = { caption: string; description: string };
 

@@ -3,9 +3,8 @@ import type { BlogEntry } from "$lib/content/blog";
 import { figures } from "$content/figures";
 import { FIGURE_LINE } from "$lib/content/figures";
 
-// Plain-markdown view of a post for agents: /blog/<slug>.md, llms-full.txt
-// and the MCP server. String work only, because the MCP server imports this
-// on the worker, where the unified pipeline must not be bundled.
+// Plain-markdown view of a post for agents: /blog/<slug>.md and llms-full.txt.
+// String work only: the source is already Markdown, so no unified pipeline.
 
 export const postUrl = (slug: string) => `${site.url}/blog/${slug}`;
 export const postMarkdownUrl = (slug: string) => `${postUrl(slug)}.md`;

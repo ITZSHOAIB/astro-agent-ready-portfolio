@@ -2,7 +2,7 @@ import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import type { AstroIntegration } from "astro";
 import { parseFrontmatter, parseList } from "../../scripts/lib/frontmatter.ts";
 
-// Cloudflare reads `_redirects` from the site root: "<from> <to> <status>" per line.
+// Cloudflare Pages and Netlify read `_redirects` from the site root: "<from> <to> <status>" per line.
 // Posts list their old slugs under `aliases`, so renaming a post file keeps the old URL alive.
 // Astro does not route files that start with `_`, so the file is written after the build.
 export function blogRedirects(): AstroIntegration {

@@ -2,14 +2,13 @@
   "name": "astro-agent-ready-portfolio",
   "private": true,
   "version": "0.0.1",
-  "description": "An Astro portfolio theme you can set up with a coding agent: Markdown content, a blog, an MCP server and llms.txt, deploys to Cloudflare.",
+  "description": "An Astro portfolio theme you can set up with a coding agent: Markdown content, a blog and llms.txt, builds to static files.",
   "keywords": [
     "astro",
     "astro-theme",
     "portfolio",
     "typescript",
     "tailwindcss",
-    "cloudflare",
     "coding-agents"
   ],
   "type": "module",
@@ -26,11 +25,9 @@
     "new:post": "node scripts/new-post.ts",
     "new:project": "node scripts/new-project.ts",
     "test": "node --no-warnings --test \"scripts/test/*.test.ts\"",
-    "verify": "pnpm check && pnpm test && pnpm check-content --ignore-starter && pnpm build",
-    "deploy": "wrangler deploy"
+    "verify": "pnpm check && pnpm test && pnpm check-content --ignore-starter && pnpm build"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^14.4.8",
     "@fontsource/inter": "^5.3.0",
     "@lucide/astro": "^1.74.0",
     "@resvg/resvg-js": "^2.6.2",
@@ -55,7 +52,6 @@
     "@astrojs/check": "^0.9.12",
     "@types/hast": "^3.0.5",
     "@types/node": "^26.6.6",
-    "typescript": "^6.0.3",
-    "wrangler": "^4.163.0"
+    "typescript": "^6.0.3"
   }
 }

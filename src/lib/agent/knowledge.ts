@@ -9,10 +9,8 @@ import { selectedWork } from "$content/selected-work";
 import { skillGroups } from "$content/skills";
 import { formatExperience } from "$lib/utils/experience";
 
-// Markdown views of the portfolio data for agents. llms.txt, llms-full.txt,
-// and the /mcp tools all read from here, so they never drift from the page.
-
-export const mcpUrl = `${site.url}/mcp`;
+// Markdown views of the portfolio data for agents. llms.txt and llms-full.txt
+// both read from here, so they never drift from the page.
 
 const years = () => formatExperience(careerStartDate, new Date());
 const list = (items: string[]) => items.map((item) => `- ${item}`).join("\n");

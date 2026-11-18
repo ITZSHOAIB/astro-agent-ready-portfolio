@@ -14,7 +14,7 @@ export type Profile = {
   domain: string;
   role: string;
   company: string;
-  /** Shown in the hero and the MCP summary; leave out to hide it. */
+  /** Shown in the hero and the llms.txt summary; leave out to hide it. */
   location?: string;
   email: string;
   focus: string;

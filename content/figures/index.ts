@@ -3,7 +3,7 @@ import ExampleFigure from "./ExampleFigure.astro";
 
 // Figures a post can place with `::figure <id>` on a line of its own.
 // An unknown id fails the build. Each figure needs a component and a caption
-// plus a text description (used where components cannot run: feeds, .md, MCP).
+// plus a text description (used where components cannot run: feeds, .md, llms-full.txt).
 
 export const figureComponents: Record<string, typeof ExampleFigure> = {
   example: ExampleFigure,

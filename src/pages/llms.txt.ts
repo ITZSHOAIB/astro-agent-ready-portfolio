@@ -1,5 +1,5 @@
 import { site } from "$content/site";
-import { mcpUrl, profileSummary } from "$lib/agent/knowledge";
+import { profileSummary } from "$lib/agent/knowledge";
 import { profile } from "$content/profile";
 import { blogPosts } from "$lib/content/blog";
 
@@ -23,14 +23,6 @@ export const GET = () => {
       ].join("\n")
     : "";
 
-  const mcpSection = site.features.mcp
-    ? `## MCP server
-
-- [${mcpUrl}](${mcpUrl}): read-only MCP server (Streamable HTTP) with tools to search and read this portfolio. Claude Code: \`claude mcp add --transport http ${site.handle} ${mcpUrl}\`
-
-`
-    : "";
-
   const body = `# ${profile.name}
 
 > ${site.shortDescription}
@@ -44,7 +36,7 @@ ${profileSummary()}
 
 ${blogSection}
 
-${mcpSection}## Contact
+## Contact
 
 - [Email](mailto:${profile.email}): ${profile.email}
 ${links.join("\n")}

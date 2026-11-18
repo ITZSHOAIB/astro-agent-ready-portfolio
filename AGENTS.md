@@ -1,6 +1,6 @@
 # Setting up this portfolio (runbook for coding agents)
 
-This repo is an Astro portfolio that deploys to Cloudflare Workers. Everything about the owner lives in `content/`. Requires Node 24 and pnpm (run `corepack enable` if pnpm is missing). Your job: turn the placeholder person (Alex Rivera) into the real owner, then hand the human the few steps only they can do.
+This repo is an Astro portfolio that builds to static files. Everything about the owner lives in `content/`. Requires Node 24 and pnpm (run `corepack enable` if pnpm is missing). Your job: turn the placeholder person (Alex Rivera) into the real owner, then hand the human the few steps only they can do.
 
 You are done when `pnpm check-content` prints `check-content: ok` (or `pnpm check-content --allow-placeholders` does, when the human has no photo, social image or resume yet; see below) and `pnpm verify` ends with a successful build. `pnpm verify` skips the starter check so a fresh template can build, so it does not prove setup is finished: always run `check-content` yourself. Do not stop earlier, and do not edit code under `src/` to get there.
 
@@ -10,7 +10,7 @@ If the human has no photo, social image or resume yet, run `pnpm check-content -
 
 Collect these before editing. Do not invent any of them.
 
-- Full name, and a short lowercase handle (letters and digits only).
+- Full name.
 - The site address, for example `https://jane.dev` (the domain they own or will buy).
 - One-line job title and a two-sentence "about me".
 - Public email, plus links: GitHub, LinkedIn, X/Twitter, anything else they want shown.
@@ -18,9 +18,9 @@ Collect these before editing. Do not invent any of them.
 - Work history (role, company, dates, two or three bullets each) and skills.
 - Up to three pieces of selected work and any open-source projects to list.
 - A square photo (at least 512x512) and a resume PDF. If they have none yet, keep the placeholders and say so.
-- Where they are based (or leave it out), and which features to keep: `blog`, `askAi`, `mcp`, `openToWork` (see `content/site.ts`).
+- Where they are based (or leave it out), and which features to keep: `blog`, `askAi`, `openToWork` (see `content/site.ts`).
 
-If the human does not answer a question, use these defaults and list them in your report: `blog` off unless they have posts, `openToWork` off, `askAi` and `mcp` on, `analyticsToken` empty, no location. Optional fields (`location`, a project card's `stars`, `updated` and `language`, a project page's `updated`) are deleted rather than filled with made-up values. For required text the human did not give you, write the shortest honest value from facts you have, and list it in your report so they can improve it:
+If the human does not answer a question, use these defaults and list them in your report: `blog` off unless they have posts, `openToWork` off, `askAi` on, `analyticsToken` empty, no location. Optional fields (`location`, a project card's `stars`, `updated` and `language`, a project page's `updated`) are deleted rather than filled with made-up values. For required text the human did not give you, write the shortest honest value from facts you have, and list it in your report so they can improve it:
 
 | Field | If you have nothing |
 | --- | --- |
@@ -82,8 +82,8 @@ Rules:
 Hand these over as a short numbered list when the content is done. Do not try to run them.
 
 1. Push the repo to their GitHub account.
-2. Log in to Cloudflare and create a Worker from that repo (`DEPLOYMENT.md`). Approve the first deploy.
-3. Point their domain at it: DNS records and the custom domain in Cloudflare.
+2. Connect the repo to a static host such as Cloudflare Pages or Netlify (`DEPLOYMENT.md`). Approve the first deploy.
+3. Point their domain at it: DNS records and the custom domain at the host.
 4. Optional: create a Cloudflare Web Analytics site and paste its token into `analyticsToken` in `content/site.ts`.
 5. Review the site in the browser and approve the copy. You cannot judge how it reads.
 

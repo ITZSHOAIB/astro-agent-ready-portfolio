@@ -3,12 +3,12 @@
 # astro-agent-ready-portfolio
 
 **A portfolio you set up by editing files, or by asking your coding agent to do it.**<br>
-An Astro theme · Tailwind · Cloudflare Workers · a blog, an MCP server and `llms.txt` built in.
+An Astro theme · Tailwind · fully static · a blog and `llms.txt` built in.
 
 [![MIT licence](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE)
 ![Astro 7](https://img.shields.io/badge/Astro-7-bc52ee)
 ![Tailwind 4](https://img.shields.io/badge/Tailwind-4-38bdf8)
-![Cloudflare Workers](https://img.shields.io/badge/deploys%20to-Cloudflare%20Workers-f38020)
+![Static](https://img.shields.io/badge/output-static-22c55e)
 
 <img src="docs/screenshots/home.webp" alt="The portfolio home page with the placeholder person Alex Rivera: name, role, links, and a selected-work section" width="860">
 
@@ -26,7 +26,7 @@ Open the folder in Claude Code, Codex, Cursor or any agent that reads `AGENTS.md
 
 > Set this up as my portfolio. Follow AGENTS.md.
 
-The agent interviews you (name, links, work history, skills), fills in `content/`, deletes the placeholders, and runs one command that tells it exactly what is still wrong. When it is done it hands you the few steps only you can do: push to GitHub, connect Cloudflare, point your domain.
+The agent interviews you (name, links, work history, skills), fills in `content/`, deletes the placeholders, and runs one command that tells it exactly what is still wrong. When it is done it hands you the few steps only you can do: push to GitHub, connect a host, point your domain.
 
 No account, API key or CMS is involved. Your site is a folder of Markdown and typed data files.
 
@@ -63,9 +63,9 @@ When the list is empty it prints `check-content: ok`. It also catches broken lin
 
 - **Content as files.** Prose in Markdown, structured data (experience, skills, projects) as typed TypeScript with a comment above every field.
 - **Blog.** Markdown posts, tags, RSS and JSON feeds, reading progress, generated Open Graph images, redirects for renamed posts.
-- **Written for AI readers too.** `/llms.txt`, `/llms-full.txt`, a `.md` version of every post, and a read-only **MCP server** at `/mcp` so an agent can search and read your portfolio.
+- **Written for AI readers too.** `/llms.txt`, `/llms-full.txt` and a `.md` version of every post, so an agent can read your portfolio without scraping HTML.
 - **Ask AI.** Buttons that open Claude or ChatGPT with a prefilled question about you.
-- **Static by default.** Pages are prerendered at build time. Analytics are optional and cookie-free (Cloudflare Web Analytics).
+- **Fully static.** Every page is built ahead of time; no server, no functions. Analytics are optional and cookie-free (Cloudflare Web Analytics).
 - **Switches, not forks.** Every feature is a flag in `content/site.ts`, plus an `accent` colour.
 - **Safe to automate.** `pnpm verify` runs type checks, tests, the content check and a production build.
 
@@ -116,14 +116,13 @@ In `content/site.ts`:
 | --- | --- |
 | `blog` | `/blog`, post pages, feeds, tags, the home-page section |
 | `askAi` | The "Ask AI" button and dialog |
-| `mcp` | The read-only MCP server at `/mcp` (needs a host that runs server code, which the Cloudflare Worker is) |
 | `openToWork` | A soft availability line in the hero |
 
 `accent` sets the highlight colour (active filters, reading progress, focus rings). It takes a 6-digit hex.
 
 ## Deploy
 
-Push to GitHub, import the repo in Cloudflare Workers, and use `pnpm verify` as the build command and `pnpm run deploy` as the deploy command. Step by step, plus the direct-upload path, in [DEPLOYMENT.md](DEPLOYMENT.md).
+The build is plain static files in `dist/`, so any static host works. Use `pnpm verify` as the build command and `dist` as the output directory. Host notes in [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## FAQ
 
@@ -133,7 +132,7 @@ Push to GitHub, import the repo in Cloudflare Workers, and use `pnpm verify` as 
 
 **Can I change the design?** The code in `src/` is yours once you copy the template. The `accent` colour is the supported knob; anything beyond that is ordinary Astro work: `.astro` components with a little vanilla TypeScript, no UI framework.
 
-**Not on Cloudflare?** Every page is prerendered; only `/mcp` runs on the server. Swap `@astrojs/cloudflare` for another Astro adapter, or turn `mcp` off and deploy `dist/` anywhere. See [DEPLOYMENT.md](DEPLOYMENT.md).
+**Which host?** Any static host. Cloudflare Pages and Netlify also read the generated `_redirects` file for renamed posts. See [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## Licence
 

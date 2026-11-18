@@ -1,49 +1,37 @@
 # Deployment
 
-The site deploys to Cloudflare Workers: the pages are static files, and one Worker serves them plus the `/mcp` endpoint. You need a Cloudflare account and the repo on GitHub.
+The site builds to plain static files in `dist/`. There is no server code, so any static host works: Cloudflare Pages, Netlify, Vercel, GitHub Pages, or your own web server.
 
-First, pick a name for the Worker and set it as `name` in `wrangler.jsonc`. It becomes the `*.workers.dev` address until your own domain is connected.
+Whatever the host, use these settings:
 
-## Connect GitHub (recommended)
-
-In the Cloudflare dashboard: Workers & Pages, Create, Import a repository. Pick the repo, then use:
-
-- Project name: the same `name` as in `wrangler.jsonc`
-- Production branch: `main`
 - Build command: `pnpm verify`
-- Deploy command: `pnpm run deploy`
-- Root directory: `/`
+- Output directory: `dist`
+- Node version: 24 (`NODE_VERSION=24` on most hosts)
+- pnpm version: 11.9.0 (`PNPM_VERSION=11.9.0` where the host reads it)
 
-Environment variables (build):
+`pnpm verify` runs the checks and then the build, so a broken site never publishes. A fresh clone still passes with the starter content; `pnpm check-content` (without flags) is what tells you when you have replaced everything.
 
-- `NODE_VERSION=24`
-- `PNPM_VERSION=11.9.0`
+Set `site.url` in `content/site.ts` to the address the site will live at, because canonical links, feeds and the sitemap are built from it.
 
-Compatibility flags live in `wrangler.jsonc`, so there is nothing to set in the dashboard.
+## Cloudflare Pages or Netlify
 
-`pnpm verify` runs the checks and the build, so a broken site never publishes. A fresh clone still passes with the starter content; `pnpm check-content` (without flags) is what tells you when you have replaced everything.
+Import the repo, then use the settings above. Both hosts read `dist/_redirects`, which the build writes from the `aliases` field of renamed posts, and `_headers` (from `content/public/`), which lets browsers cache the hashed files in `/_astro/` for a year.
 
-## Direct upload
+## Other hosts
 
-No Git integration needed:
+Vercel, GitHub Pages and plain web servers ignore `_redirects` and `_headers`. Everything else works as is. If you rename a post, add the old URL as a redirect in your host's own config.
+
+Pages are built as `blog.html`, `blog/hello-world.html` and so on, linked without the extension (`/blog`). Most hosts serve that automatically. On a plain web server, turn on extensionless `.html` lookups (for nginx: `try_files $uri $uri.html $uri/ =404;`).
+
+## By hand
 
 ```sh
 pnpm install
 pnpm verify
-pnpm exec wrangler login
-pnpm run deploy
 ```
 
-`pnpm run deploy` runs `wrangler deploy`, which uploads the build in `dist/`.
-
-## Custom domain
-
-In the Worker: Settings, Domains & Routes, Add, Custom domain. Use the same address as `site.url` in `content/site.ts`, because canonical links, feeds and the sitemap are built from it.
+Upload the contents of `dist/` to your host.
 
 ## Analytics (optional)
 
-Create a Web Analytics site in Cloudflare and paste its beacon token into `analyticsToken` in `content/site.ts`. It is cookie-free. Leave it empty to turn analytics off.
-
-## Another host?
-
-Everything except `/mcp` is prerendered to static files. `features.mcp` needs a host that runs server code, which the Worker is. To host elsewhere, set `features.mcp` to `false`, delete `src/pages/mcp.ts`, and swap `@astrojs/cloudflare` in `astro.config.ts` for your host's Astro adapter (or remove it for a plain static site in `dist/`).
+Create a Cloudflare Web Analytics site (it works on any host) and paste its beacon token into `analyticsToken` in `content/site.ts`. It is cookie-free. Leave it empty to turn analytics off.

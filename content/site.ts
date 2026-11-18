@@ -3,8 +3,6 @@ export const site = {
   // Full address of the deployed site, no trailing slash.
   url: "https://alex-rivera.example",
   name: "Alex Rivera",
-  // Short lowercase id: names the MCP server, its resource URIs and the `claude mcp add` command.
-  handle: "alex",
   // <title> of the home page and the default social title.
   title: "Alex Rivera - Software Engineer",
   // Meta description for search results and link previews (one or two sentences).
@@ -44,8 +42,6 @@ export const site = {
     blog: true,
     // "Ask AI" button and dialog: prefilled chat links about the owner.
     askAi: true,
-    // Read-only MCP server at /mcp. Needs a host that runs functions (the Cloudflare Worker does).
-    mcp: true,
     // Soft availability line in the hero. Turn off if the timing is wrong.
     openToWork: true,
   },

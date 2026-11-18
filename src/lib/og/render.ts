@@ -1,7 +1,5 @@
-// Build-time only: renders a 1200x630 social card. Imported dynamically from
-// prerendered endpoints so the native resvg binding never reaches the worker bundle.
-// Node built-ins are imported lazily: this module is bundled into the worker, where a
-// static `node:` import fails at deploy time even though the route never runs there.
+// Build-time only: renders a 1200x630 social card with satori and the native resvg
+// binding. Imported dynamically from the og.png endpoints.
 
 // `cover` is a finished 1200x630 JPEG under content/public/ (for example /images/blog/x.jpg)
 // with the title already on it. With one, the card is that image and nothing else.

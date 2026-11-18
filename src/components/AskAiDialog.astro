@@ -1,13 +1,10 @@
 ---
-import { ArrowUpRight, Check, ChevronDown, Copy, Sparkles, X } from "@lucide/astro";
+import { ArrowUpRight, Check, Copy, Sparkles, X } from "@lucide/astro";
 import { copy as siteCopy } from "$content/copy";
 import { askAiPrompt, providerHref, providers } from "$lib/ai/ask-ai";
 
-type Props = { siteUrl: string; name: string; handle: string; mcp: boolean };
-const { siteUrl, name, handle, mcp } = Astro.props;
-
-const mcpUrl = `${siteUrl}/mcp`;
-const command = `claude mcp add --transport http ${handle} ${mcpUrl}`;
+type Props = { siteUrl: string; name: string };
+const { siteUrl, name } = Astro.props;
 
 const questions = siteCopy.askAiQuestions.map((q) => ({
   ...q,
@@ -115,57 +112,6 @@ const copyButton =
         </button>
       </div>
     </div>
-
-    {
-      mcp && (
-        <details class="group mt-6 border-t border-[#27272a] pt-4">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-sm font-medium text-[#d4d4d8] hover:text-[#fafafa] [&::-webkit-details-marker]:hidden">
-            For developers: MCP server and llms.txt
-            <ChevronDown class="size-4 text-[#71717a] transition group-open:rotate-180" />
-          </summary>
-
-          <div class="mt-4 space-y-4 text-sm text-[#a1a1aa]">
-            <p class="leading-6">
-              This portfolio is also a read-only MCP server. Add it to Claude Code and your agent can
-              search my work or compare it with a posting.
-            </p>
-            <div class="flex items-center gap-3 rounded-md border border-[#27272a] bg-[#050505] py-2 pl-3 pr-2">
-              <code class="min-w-0 flex-1 font-mono text-xs leading-5 text-[#e4e4e7] [overflow-wrap:anywhere]">
-                <span class="mr-1.5 select-none text-[#52525b]">$</span>
-                {command}
-              </code>
-              <button
-                type="button"
-                class={copyButton}
-                data-copy="command"
-                data-value={command}
-                aria-label="Copy command"
-                title="Copy command"
-              >
-                <Copy class="size-3.5" data-icon="copy" />
-                <Check class="hidden size-3.5 text-emerald-400" data-icon="check" />
-              </button>
-            </div>
-            <p class="font-mono text-xs leading-5 text-[#71717a]">
-              search_portfolio · compare_with_job_posting · get_experience · get_selected_work ·
-              get_projects · get_skills · get_profile · get_contact
-            </p>
-            <p>
-              Other clients: <code class="font-mono text-xs text-[#d4d4d8]">{mcpUrl}</code> (Streamable
-              HTTP). Plain text:
-              <a
-                class="font-medium text-[#e4e4e7] underline decoration-[#3f3f46] underline-offset-4 hover:decoration-[#a1a1aa]"
-                href="/llms.txt">llms.txt</a
-              >,
-              <a
-                class="font-medium text-[#e4e4e7] underline decoration-[#3f3f46] underline-offset-4 hover:decoration-[#a1a1aa]"
-                href="/llms-full.txt">llms-full.txt</a
-              >.
-            </p>
-          </div>
-        </details>
-      )
-    }
   </div>
 </dialog>
 
@@ -222,7 +168,7 @@ const copyButton =
       const done = button.dataset.copy === id;
       button.querySelector("[data-icon=copy]")?.classList.toggle("hidden", done);
       button.querySelector("[data-icon=check]")?.classList.toggle("hidden", !done);
-      const label = done ? "Copied" : button.dataset.copy === "prompt" ? "Copy prompt" : "Copy command";
+      const label = done ? "Copied" : "Copy prompt";
       button.ariaLabel = label;
       button.title = label;
     }
@@ -244,7 +190,7 @@ const copyButton =
     if (target === dialog) return dialog.close();
     if (target.closest("[data-close]")) return dialog.close();
     const button = target.closest<HTMLButtonElement>("[data-copy]");
-    if (button) return copy(button.dataset.copy!, button.dataset.value ?? prompt);
+    if (button) return copy(button.dataset.copy!, prompt);
     const link = target.closest<HTMLAnchorElement>("[data-provider]");
     if (link?.dataset.prefills === "false") copy(link.dataset.provider!, prompt, 8000);
   });
