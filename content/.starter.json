@@ -1,0 +1,102 @@
+{
+  "values": [
+    {
+      "module": "site",
+      "export": "site",
+      "path": "url",
+      "value": "https://alex-rivera.example"
+    },
+    {
+      "module": "site",
+      "export": "site",
+      "path": "name",
+      "value": "Alex Rivera"
+    },
+    {
+      "module": "site",
+      "export": "site",
+      "path": "title",
+      "value": "Alex Rivera - Software Engineer"
+    },
+    {
+      "module": "site",
+      "export": "site",
+      "path": "twitterHandle",
+      "value": "@alexrivera"
+    },
+    {
+      "module": "profile",
+      "export": "profile",
+      "path": "name",
+      "value": "Alex Rivera"
+    },
+    {
+      "module": "profile",
+      "export": "profile",
+      "path": "email",
+      "value": "alex@alex-rivera.example"
+    },
+    {
+      "module": "profile",
+      "export": "profile",
+      "path": "domain",
+      "value": "alex-rivera.example"
+    },
+    {
+      "module": "profile",
+      "export": "profile",
+      "path": "company",
+      "value": "Northwind Labs"
+    },
+    {
+      "module": "profile",
+      "export": "profile",
+      "path": "focus",
+      "value": "Developer tools & reliable backends."
+    },
+    {
+      "module": "profile",
+      "export": "profile",
+      "path": "links.0.href",
+      "value": "https://github.com/alexrivera"
+    }
+  ],
+  "files": [
+    {
+      "path": "content/experience.ts",
+      "sha256": "f33cc035b4beba1dd5570d2168d301752a76562d4f1e472e6deb47ba4f899c11"
+    },
+    {
+      "path": "content/skills.ts",
+      "sha256": "efe6b44f68639dc840b22ec27a72a7371595f7818473f233b1952e6c270f9fef"
+    },
+    {
+      "path": "content/selected-work.ts",
+      "sha256": "0cd292d2230dc587520ed667bfab64d98ceccf28b980b10adbc6240119c5a4ad"
+    },
+    {
+      "path": "content/github-projects.ts",
+      "sha256": "d6f10c1b56d97119c82a0d6d3f48b2d577c6f9e56672ee256aa52417bd7c2f50"
+    },
+    {
+      "path": "content/posts/hello-world.md",
+      "sha256": "88cb4d60137c34e39d0e742b76492342e20501337a9393f4b4b2808724091447"
+    },
+    {
+      "path": "content/projects/sample-project.md",
+      "sha256": "9e69c8509d4434546c47ebe8d794cb8c2590b38a1e0f2d07e609923962b85ab6"
+    },
+    {
+      "path": "content/public/images/profile.png",
+      "sha256": "40cb0d6c4dc945c715d0589f6801f4cfa8fa4f2181a0d13688e43e6759ce7075"
+    },
+    {
+      "path": "content/public/images/og-image.png",
+      "sha256": "390cd51007db82917350b292e7a0011d980e0873cc1ebbd8cbad96d06eb2c33c"
+    },
+    {
+      "path": "content/public/resume.pdf",
+      "sha256": "7269687eabf4cd7616dfc981b5fc948907f3b5198ad7b6f57f975d04aa908d05"
+    }
+  ]
+}
