@@ -7,7 +7,7 @@ projects: [shipline]
 cover: /images/demo/blog/one-pipeline-forty-services.jpg
 ---
 
-A year ago, Northwind had three ways to ship code. A bash script that only two people understood, a Jenkins job with forty parameters, and "ask Priya". Today 42 services deploy through one pipeline: build, test, canary, promote. Nobody was told to move. This is what I think made the difference.
+At the start of 2025, Northwind had three ways to ship code. A bash script that only two people understood, a Jenkins job with forty parameters, and "ask Priya". By the end of the year, 42 services deployed through one pipeline: build, test, canary, promote. Nobody was told to move. This is what I think made the difference.
 
 > [!TLDR]
 > Make the first deploy take ten minutes. Copy the old scripts' good ideas. Publish the numbers every week, and let teams move when they are ready.
@@ -38,7 +38,7 @@ Every Monday a bot posted three numbers for every team: deploys last week, media
 
 We never wrote a mandate. The chart did the persuading.
 
-![Bar chart of services on the shared pipeline by month, rising from 1 in January to 42 in December](/images/demo/blog/pipeline-adoption.webp "Adoption by month. The service template in June made moving a single pull request.")
+![Bar chart of services on the shared pipeline by month in 2025, rising from 1 in January to 42 in December](/images/demo/blog/pipeline-adoption.webp "Adoption by month in 2025. The service template in June made moving a single pull request.")
 
 The jump in the middle of the year is the service template. Before it, moving meant editing your Dockerfile, your health checks and your alerts. After it, a new service started on the pipeline, and an old one moved in one pull request.
 
@@ -50,4 +50,4 @@ The jump in the middle of the year is the service template. Before it, moving me
 
 ## Where it is now
 
-The pipeline runs a few hundred deploys a week. The next post covers the part people ask about most: [how the canary works without a service mesh](/blog/canary-deploys-without-a-mesh).
+The pipeline runs a few hundred deploys a week. An earlier post covers the part people ask about most: [how the canary works without a service mesh](/blog/canary-deploys-without-a-mesh).

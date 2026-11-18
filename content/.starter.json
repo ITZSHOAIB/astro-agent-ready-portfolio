@@ -92,7 +92,7 @@
     },
     {
       "path": "content/posts/one-pipeline-forty-services.md",
-      "sha256": "216d86a8fc7c78d3c3af092b90ead7cf587a6bbdc5ec72c12fb98b4c57294eab"
+      "sha256": "e1212f47fa801127d8a72e3a8bf417a6ca32aacd37720e0871a37c0589c72624"
     },
     {
       "path": "content/posts/searching-ten-thousand-notes.md",
@@ -140,7 +140,7 @@
     },
     {
       "path": "content/public/images/demo/blog/idempotency-keys.jpg",
-      "sha256": "eef1e0c135a82e14b9d8ca72e0816208b959f9bf0fbdadea5c255057f2e225fd"
+      "sha256": "38bdd8edb3ef3e929fe44c480b82fd1226da83fe51b4e20b01365dcc884a6d61"
     },
     {
       "path": "content/public/images/demo/blog/one-pipeline-forty-services.jpg",
@@ -152,7 +152,7 @@
     },
     {
       "path": "content/public/images/demo/blog/pipeline-adoption.webp",
-      "sha256": "c970ec5c18ab29a3a62bd6f9cc750f1ab6aa6665f63ad68362cdfc4e283f8f23"
+      "sha256": "d3a0643dbf74210b253aeba6d4172350082f238a41681e0f92fc6bfc7e0daa50"
     },
     {
       "path": "content/public/images/demo/blog/retry-sequence.webp",
@@ -168,7 +168,7 @@
     },
     {
       "path": "content/public/images/demo/blog/the-on-call-handbook.jpg",
-      "sha256": "de759fa3f3a538e005ab2c3a7c9122c2d105c5a7ee53e6987a6b7b9044e54620"
+      "sha256": "c7612da080d04f4d77a947f13e0b960cd3799636c0ac98015db6fada27218765"
     },
     {
       "path": "content/public/images/demo/projects/notegrep.webp",
