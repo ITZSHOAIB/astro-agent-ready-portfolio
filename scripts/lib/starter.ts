@@ -18,9 +18,14 @@ const dig = (data: unknown, path: string) =>
     .reduce<unknown>((node, key) => (node as Record<string, unknown> | undefined)?.[key], data);
 
 const isAsset = (path: string) => path.startsWith("content/public/");
+// Covers and screenshots for the example posts and projects. They go with that content,
+// so --allow-placeholders does not accept them.
+const isDemo = (path: string) => path.startsWith("content/public/images/demo/");
 
 const fileMessage = (path: string) =>
-  isAsset(path)
+  isDemo(path)
+    ? "is artwork for the example posts and projects. Delete it, along with anything that still links to it."
+    : isAsset(path)
     ? "is still the placeholder file. Replace it with your own, or pass --allow-placeholders if you do not have one yet."
     : path.endsWith(".md")
       ? "is still the example page. Delete it or replace it with your own."
@@ -46,7 +51,7 @@ export async function checkStarter(root: string, { allowPlaceholders = false } =
   for (const entry of manifest.files) {
     if (!existsSync(join(root, entry.path))) continue;
     if (fingerprint(entry.path, readFileSync(join(root, entry.path))) === entry.sha256) {
-      if (allowPlaceholders && isAsset(entry.path)) continue;
+      if (allowPlaceholders && isAsset(entry.path) && !isDemo(entry.path)) continue;
       problems.push({ file: entry.path, message: fileMessage(entry.path) });
     }
   }

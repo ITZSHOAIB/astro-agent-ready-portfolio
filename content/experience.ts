@@ -13,6 +13,7 @@ export const experience: ExperienceItem[] = [
       "Built the deploy pipeline now used by 40+ services.",
       "Cut median time from commit to production from two days to twelve minutes.",
       "Wrote the service template that new teams start from.",
+      "Wrote the platform on-call handbook; pages fell from 31 to 9 a week.",
     ],
     links: [],
   },
@@ -25,6 +26,7 @@ export const experience: ExperienceItem[] = [
     highlights: [
       "Designed the idempotent write path for the payments API.",
       "Built the replay tool support uses to resolve stuck payments.",
+      "Wrote the transactional outbox that became the open-source outboxer.",
     ],
     links: [],
   },

@@ -133,6 +133,17 @@ test("--allow-placeholders accepts an untouched asset but not an untouched data 
   assert.equal(allowed.code, 0, allowed.out);
 });
 
+test("--allow-placeholders still reports untouched demo artwork", () => {
+  const webp = "demo-bytes";
+  const sha256 = createHash("sha256").update(webp).digest("hex");
+  const path = "content/public/images/demo/blog/first.webp";
+  const manifest = JSON.stringify({ values: [], files: [{ path, sha256 }] });
+  const root = makeRoot({ "content/.starter.json": manifest, [path]: webp });
+  const { code, out } = check(root, "--allow-placeholders");
+  assert.equal(code, 1);
+  assert.match(out, /first\.webp: is artwork for the example posts and projects/);
+});
+
 test("a project page does not need an updated date", () => {
   const page = "---\ntitle: Tool\ndescription: A tool.\nrepo: https://github.com/alex/tool\n---\nBody.\n";
   const { code, out } = check(makeRoot({ "content/projects/tool.md": page }));

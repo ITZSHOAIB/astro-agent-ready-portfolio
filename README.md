@@ -103,7 +103,7 @@ By hand or with an agent, the loop is the same: edit `content/`, run `pnpm check
 | `content/profile.ts` | Your name, role, bio, links, email |
 | `content/experience.ts`, `skills.ts` | Work history and skills |
 | `content/selected-work.ts`, `github-projects.ts` | The cards on the home page; projects can have their own page in `content/projects/` |
-| `content/posts/*.md` | Blog posts (`hello-world.md` is the authoring guide) |
+| `content/posts/*.md` | Blog posts (six examples; `hello-world.md` is the authoring guide) |
 | `content/public/` | Photo, social image, resume, icons |
 | `src/` | The site itself. You should not need to edit it |
 | `scripts/` | `check-content`, `new:post`, `new:project` |

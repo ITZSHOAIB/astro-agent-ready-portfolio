@@ -1,9 +1,10 @@
 ---
 title: Hello world
 description: A first post that doubles as the authoring guide for this site. Replace it with your own writing.
-published: 2026-11-10
+published: 2025-03-04
 tags: [meta, writing]
-projects: [Sample Project]
+projects: [notegrep]
+cover: /images/demo/blog/hello-world.jpg
 ---
 
 This is the starter post. It shows what a post can do, and the source of this file is the reference. When you write your own first post, delete this one (or keep it as a draft with `draft: true`).
@@ -77,7 +78,7 @@ To add your own, create a component next to `ExampleFigure.astro`, register it i
 
 ## Images
 
-![A placeholder banner](/images/og-image.png "A titled image becomes a captioned figure")
+![Bar chart of pages per week falling from 31 to 9](/images/demo/blog/pages-per-week.webp "A titled image becomes a captioned figure")
 
 Put image files in `content/public/images/` and reference them with a path starting with `/images/`.
 

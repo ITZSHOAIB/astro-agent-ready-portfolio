@@ -71,9 +71,9 @@ Loop: edit, run `pnpm check-content`, read each problem (it names the file and t
 
 Rules:
 
-- Replace the placeholder `hello-world` post and `sample-project` page. Delete them, or turn them into real content. Do not leave them in.
+- Replace the example content: the posts in `content/posts/`, the project pages in `content/projects/`, and the covers and screenshots in `content/public/images/demo/`. Delete them, or turn them into real content. Do not leave them in. `check-content` lists every untouched one, and `--allow-placeholders` does not accept the demo images.
 - Replace `content/public/images/profile.png`, `og-image.png` and `resume.pdf` with the human's files. If they have none, use `--allow-placeholders` (above) and tell them.
-- If the human has no blog, set `features.blog` to `false` instead of keeping the placeholder post.
+- If the human has no blog, set `features.blog` to `false` and delete the example posts.
 - Write only facts the human gave you. Never invent employers, dates, links or metrics.
 - Do not add dependencies, and do not touch `src/` or `scripts/`.
 
@@ -89,4 +89,4 @@ Hand these over as a short numbered list when the content is done. Do not try to
 
 ## 4. Writing posts
 
-`content/posts/hello-world.md` documents frontmatter, callouts, figures and code blocks. Read it before writing the human's first post, then replace it.
+`content/posts/hello-world.md` documents frontmatter, callouts, figures and code blocks. Read it before writing the human's first post, then replace it. The other example posts show covers and captioned images in use.
