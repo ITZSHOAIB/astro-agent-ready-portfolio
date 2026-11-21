@@ -4,11 +4,13 @@ Two ways: let a coding agent do it, or do it by hand.
 
 ## With a coding agent
 
-Open this folder in Claude Code, Codex, Cursor or similar and say:
+Open this folder in Claude Code, Codex, Cursor, Gemini CLI or similar and say:
 
 > Set this up as my portfolio. Follow AGENTS.md.
 
-It will ask for your details, edit `content/`, and tell you what is left for you (GitHub, hosting, DNS). Have these ready: name, site address, bio, links, work history, a square photo and a resume PDF.
+It will ask for your details, edit `content/`, and tell you what is left for you (GitHub, hosting, DNS). Have these ready: name, site address, bio, links, work history, a square photo and a resume PDF. A resume, LinkedIn export or old site saves most of the questions: the agent reads it, and shows you what it will publish before writing it.
+
+After setup, ask the same agent for changes ("write a post about X", "add my new job"). It follows the "After setup" part of `AGENTS.md`.
 
 ## By hand
 

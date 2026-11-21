@@ -1,6 +1,25 @@
 # Setting up this portfolio (runbook for coding agents)
 
-This repo is an Astro portfolio that builds to static files. Everything about the owner lives in `content/`. Requires Node 24 and pnpm (run `corepack enable` if pnpm is missing). Your job: turn the placeholder person (Alex Rivera) into the real owner, then hand the human the few steps only they can do.
+This repo is an Astro portfolio that builds to static files. Everything about the owner lives in `content/`. Requires Node 24 and pnpm (run `corepack enable` if pnpm is missing).
+
+## 0. Which job is this?
+
+If the folder is empty and the human wants a portfolio from this theme, create it first. This command never prompts:
+
+```sh
+pnpm create astro@latest my-portfolio --template ITZSHOAIB/astro-agent-ready-portfolio --install --no-git --skip-houston --yes
+```
+
+Then work inside `my-portfolio/` and run `git init` there. Otherwise, run `pnpm install` once, then:
+
+```sh
+pnpm check-content --allow-placeholders
+```
+
+- **It lists problems:** setup is not finished. Your job is to turn the placeholder person (Alex Rivera) into the real owner, then hand the human the few steps only they can do. Follow sections 1 to 4.
+- **It prints `check-content: ok`:** the site is already set up. Do what the human asked, following section 5. If it also lists "Placeholders still in place", remind the human to replace those files.
+
+## Setup
 
 You are done when `pnpm check-content` prints `check-content: ok` (or `pnpm check-content --allow-placeholders` does, when the human has no photo, social image or resume yet; see below) and `pnpm verify` ends with a successful build. `pnpm verify` skips the starter check so a fresh template can build, so it does not prove setup is finished: always run `check-content` yourself. Do not stop earlier, and do not edit code under `src/` to get there.
 
@@ -9,6 +28,10 @@ If the human has no photo, social image or resume yet, run `pnpm check-content -
 ## 1. Ask the human first
 
 Collect these before editing. Do not invent any of them.
+
+If the human gives you source material (a resume, a LinkedIn export, an old site, a GitHub profile), take the answers from it instead of asking again. Then show the human a short summary of what you will publish and ask them to confirm or correct it before you write it. Ask only for what the material does not cover.
+
+Everything you write is published on a public site. Never copy a phone number, home address, date of birth or similar private detail from source material, unless the human asks for it to be shown. Use only the email address and links the human wants public.
 
 - Full name.
 - The site address, for example `https://jane.dev` (the domain they own or will buy).
@@ -75,7 +98,7 @@ Rules:
 - Replace `content/public/images/profile.png`, `og-image.png` and `resume.pdf` with the human's files. If they have none, use `--allow-placeholders` (above) and tell them which files must still be replaced before the site goes live.
 - If the human has no blog, set `features.blog` to `false` and delete the example posts.
 - Write only facts the human gave you. Never invent employers, dates, links or metrics.
-- Do not add dependencies, and do not touch `src/` or `scripts/`.
+- Do not add dependencies, and do not touch `src/` or `scripts/` during setup.
 
 ## 3. What only the human can do
 
@@ -90,3 +113,32 @@ Hand these over as a short numbered list when the content is done. Do not try to
 ## 4. Writing posts
 
 `content/posts/hello-world.md` documents frontmatter, callouts, figures and code blocks. Read it before writing the human's first post, then replace it. The other example posts show covers and captioned images in use.
+
+## 5. After setup
+
+The site is set up when `pnpm check-content --allow-placeholders` prints `check-content: ok`. From then on, do what the human asks. End every change with `pnpm verify`, and keep `check-content` passing.
+
+| The human asks to | Do |
+| --- | --- |
+| Write a post | `pnpm new:post "Title" --description "..." --tags a,b` creates a hidden draft. Write the body (see `hello-world.md`), then delete the `draft: true` line when the human approves it |
+| Add a project | Add a card to `content/github-projects.ts`. For a page of its own, `pnpm new:project "Name" --repo <url> --description "..."` creates one in `content/projects/` |
+| Update work history, skills or links | Edit the file in `content/` (table in section 2) |
+| Turn a feature on or off, change the colour | `features` and `accent` in `content/site.ts` |
+| Replace the photo, social image or resume | Overwrite the file in `content/public/`; update `width`/`height` in `content/site.ts` if the size changed |
+
+The same rules apply: write only facts the human gave you, and publish nothing private they did not ask for.
+
+### Changing the design
+
+Edit `src/` only when the human asks for a design or behaviour change that `content/` cannot make. Keep `scripts/` as it is: `check-content` is how you and the human know the content is right. Where things are:
+
+| Path | What |
+| --- | --- |
+| `src/pages/index.astro` | The home page: which sections show, in what order |
+| `src/components/` | Home-page sections (`HeroSidebar`, `SelectedWorkSection`, `ExperienceSection`, `SkillsSection`, `ProjectsSection`, `BlogSection`) and cards |
+| `src/components/blog/`, `src/pages/blog/` | The blog index, post pages and their parts |
+| `src/layouts/` | `Base.astro` (every page) and `BlogShell.astro` (blog and project pages) |
+| `src/styles.css`, `src/lib/styles/blog.css` | Global styles and post typography |
+| `src/lib/` | Content loading, feeds, `llms.txt`, Open Graph images, icons |
+
+The site is dark only, styled with Tailwind classes in the components. Keep text contrast at 4.5:1 or more, keep it usable by keyboard, and check it at 320px wide. Then run `pnpm verify`.
