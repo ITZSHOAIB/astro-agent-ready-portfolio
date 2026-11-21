@@ -1,5 +1,5 @@
 import { copy } from "$content/copy";
-import { site } from "$content/site";
+import { site } from "$lib/site";
 import { postMarkdown, postMarkdownUrl } from "$lib/content/agent-markdown";
 import { blogEntries, blogPosts } from "$lib/content/blog";
 import { experience } from "$content/experience";

@@ -4,7 +4,7 @@ import type { GetStaticPaths } from "astro";
 import { marked } from "marked";
 import JsonLd from "../../components/JsonLd.astro";
 import Base from "../../layouts/Base.astro";
-import { site } from "$content/site";
+import { site } from "$lib/site";
 import { projectPages, type ProjectPage } from "$lib/content/projects";
 
 export const getStaticPaths = (() =>

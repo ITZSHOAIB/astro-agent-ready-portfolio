@@ -28,20 +28,20 @@ const { experience } = Astro.props;
               <div class="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1">
                 {item.links.map((link) => (
                   <a
-                    class="inline-flex items-center gap-0.5 text-[0.68rem] font-medium text-[#a1a1aa] underline decoration-[#3f3f46] decoration-1 underline-offset-3 transition hover:text-[#fafafa] hover:decoration-[#71717a]"
+                    class="inline-flex items-center gap-0.5 text-[0.68rem] font-medium text-[#a1a1aa] underline decoration-[#3f3f46] decoration-1 underline-offset-3 transition hover:text-[#fafafa] hover:decoration-[#8b8b94]"
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     {link.label}
-                    <ArrowUpRight class="size-2.5 text-[#71717a]" />
+                    <ArrowUpRight class="size-2.5 text-[#8b8b94]" />
                   </a>
                 ))}
               </div>
             </div>
             <div class="flex items-center justify-between gap-4 md:justify-end md:text-right">
               <p class="text-sm font-medium whitespace-nowrap text-[#a1a1aa]">{item.period}</p>
-              <span class="inline-flex size-8 shrink-0 items-center justify-center rounded-md border border-[#3f3f46] text-[#a1a1aa] transition group-hover:border-[#52525b] group-hover:text-[#fafafa] group-open:rotate-180 group-open:border-[#71717a]">
+              <span class="inline-flex size-8 shrink-0 items-center justify-center rounded-md border border-[#3f3f46] text-[#a1a1aa] transition group-hover:border-[#52525b] group-hover:text-[#fafafa] group-open:rotate-180 group-open:border-[#8b8b94]">
                 <ChevronDown class="size-4" />
               </span>
             </div>
@@ -53,7 +53,7 @@ const { experience } = Astro.props;
             <ul class="mt-4 max-w-3xl space-y-3">
               {item.highlights.map((highlight) => (
                 <li class="flex gap-3 text-sm leading-7 text-[#a1a1aa]">
-                  <span class="mt-3 size-1 shrink-0 rounded-full bg-[#71717a]" aria-hidden="true" />
+                  <span class="mt-3 size-1 shrink-0 rounded-full bg-[#8b8b94]" aria-hidden="true" />
                   <span>{highlight}</span>
                 </li>
               ))}

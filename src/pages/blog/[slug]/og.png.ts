@@ -1,5 +1,5 @@
 import type { APIRoute, GetStaticPaths } from "astro";
-import { site } from "$content/site";
+import { site } from "$lib/site";
 import { blogPosts } from "$lib/content/blog";
 import type { BlogPost } from "$lib/types/portfolio";
 import { formatDate } from "$lib/utils/date";

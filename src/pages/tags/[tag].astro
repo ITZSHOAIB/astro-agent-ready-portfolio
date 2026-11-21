@@ -3,7 +3,7 @@ import type { GetStaticPaths } from "astro";
 import PostCard from "../../components/blog/PostCard.astro";
 import Seo from "../../components/blog/Seo.astro";
 import BlogShell from "../../layouts/BlogShell.astro";
-import { site } from "$content/site";
+import { site } from "$lib/site";
 import { allTags, postsWithTag, type TagSummary } from "$lib/content/blog-queries";
 
 export const getStaticPaths = (() =>

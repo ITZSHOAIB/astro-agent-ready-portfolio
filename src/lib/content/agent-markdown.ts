@@ -1,4 +1,4 @@
-import { site } from "$content/site";
+import { site } from "$lib/site";
 import type { BlogEntry } from "$lib/content/blog";
 import { figures } from "$content/figures";
 import { FIGURE_LINE } from "$lib/content/figures";

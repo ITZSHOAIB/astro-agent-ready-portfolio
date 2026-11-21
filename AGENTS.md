@@ -4,7 +4,7 @@ This repo is an Astro portfolio that builds to static files. Everything about th
 
 You are done when `pnpm check-content` prints `check-content: ok` (or `pnpm check-content --allow-placeholders` does, when the human has no photo, social image or resume yet; see below) and `pnpm verify` ends with a successful build. `pnpm verify` skips the starter check so a fresh template can build, so it does not prove setup is finished: always run `check-content` yourself. Do not stop earlier, and do not edit code under `src/` to get there.
 
-If the human has no photo, social image or resume yet, run `pnpm check-content --allow-placeholders` instead. It accepts those three placeholder files and still checks everything else. Say clearly in your report that the placeholders are still there and the human must replace them. Never fake the check by editing the placeholder files.
+If the human has no photo, social image or resume yet, run `pnpm check-content --allow-placeholders` instead. It accepts those three placeholder files, lists them under "Placeholders still in place", and still checks everything else. The placeholder photo and social image show the example person (the photo is of a fictional person), so the site must not go live with them. Copy that list into your report and tell the human to replace the files before they deploy. Never fake the check by editing the placeholder files.
 
 ## 1. Ask the human first
 
@@ -72,7 +72,7 @@ Loop: edit, run `pnpm check-content`, read each problem (it names the file and t
 Rules:
 
 - Replace the example content: the posts in `content/posts/`, the project pages in `content/projects/`, and the covers and screenshots in `content/public/images/demo/`. Delete them, or turn them into real content. Do not leave them in. `check-content` lists every untouched one, and `--allow-placeholders` does not accept the demo images.
-- Replace `content/public/images/profile.png`, `og-image.png` and `resume.pdf` with the human's files. If they have none, use `--allow-placeholders` (above) and tell them.
+- Replace `content/public/images/profile.png`, `og-image.png` and `resume.pdf` with the human's files. If they have none, use `--allow-placeholders` (above) and tell them which files must still be replaced before the site goes live.
 - If the human has no blog, set `features.blog` to `false` and delete the example posts.
 - Write only facts the human gave you. Never invent employers, dates, links or metrics.
 - Do not add dependencies, and do not touch `src/` or `scripts/`.

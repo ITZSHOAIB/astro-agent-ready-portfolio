@@ -1,5 +1,5 @@
 import { profile } from "$content/profile";
-import { site } from "$content/site";
+import { site } from "$lib/site";
 
 
 // Built from content/ so the app name and colours have one source.

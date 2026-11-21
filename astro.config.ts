@@ -7,7 +7,8 @@ import { blogRedirects } from "./src/integrations/redirects";
 const path = (relative: string) => fileURLToPath(new URL(relative, import.meta.url));
 
 export default defineConfig({
-  site: site.url,
+  // SITE_URL (for a preview or demo deploy) overrides the address in content/site.ts.
+  site: process.env.SITE_URL || site.url,
   // Everything personal lives in content/; content/public holds the files served from the site root.
   publicDir: "content/public",
   // /blog, not /blog/: pages build to blog.html, matching the canonical URLs.

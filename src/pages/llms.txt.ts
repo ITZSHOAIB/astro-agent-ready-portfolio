@@ -1,4 +1,4 @@
-import { site } from "$content/site";
+import { site } from "$lib/site";
 import { profileSummary } from "$lib/agent/knowledge";
 import { profile } from "$content/profile";
 import { blogPosts } from "$lib/content/blog";

@@ -22,7 +22,7 @@ pnpm dev             # http://localhost:4321
 
 1. Edit the files in `content/`. Every field has a comment above it.
 2. Run `pnpm check-content` until it prints `check-content: ok`.
-3. Replace `content/public/images/profile.png`, `og-image.png` and `resume.pdf`. No files yet? Run `pnpm check-content --allow-placeholders` until you have them.
+3. Replace `content/public/images/profile.png`, `og-image.png` and `resume.pdf`. No files yet? Run `pnpm check-content --allow-placeholders` until you have them. It lists the placeholders still in place; the photo and social image show the example person, so replace them before the site goes live.
 4. Delete the example posts in `content/posts/`, the example pages in `content/projects/` and their artwork in `content/public/images/demo/`, or replace them with your own. `check-content` lists each one that is left.
 5. Run `pnpm verify`, then follow `DEPLOYMENT.md`.
 

@@ -1,4 +1,4 @@
-import { site } from "$content/site";
+import { site } from "$lib/site";
 import { blogPosts } from "$lib/content/blog";
 import { projectPages } from "$lib/content/projects";
 import { allTags, postsWithTag } from "$lib/content/blog-queries";

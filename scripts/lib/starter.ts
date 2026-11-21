@@ -31,6 +31,13 @@ const fileMessage = (path: string) =>
       ? "is still the example page. Delete it or replace it with your own."
       : "still holds the example entries. Replace them with your own, or empty the list if you have none.";
 
+// What --allow-placeholders still prints for a placeholder it accepts. The photo and social
+// image show the example person, so a site must not go live with them.
+const acceptedMessage = (path: string) =>
+  /\.(png|jpe?g|webp|avif|svg)$/.test(path)
+    ? "is still the placeholder image of the example person. Accepted for now; replace it before the site goes live."
+    : "is still the placeholder file. Accepted for now; replace it before the site goes live.";
+
 export async function checkStarter(root: string, { allowPlaceholders = false } = {}): Promise<Problem[]> {
   const manifestPath = join(root, "content/.starter.json");
   if (!existsSync(manifestPath)) return [];
@@ -51,7 +58,10 @@ export async function checkStarter(root: string, { allowPlaceholders = false } =
   for (const entry of manifest.files) {
     if (!existsSync(join(root, entry.path))) continue;
     if (fingerprint(entry.path, readFileSync(join(root, entry.path))) === entry.sha256) {
-      if (allowPlaceholders && isAsset(entry.path) && !isDemo(entry.path)) continue;
+      if (allowPlaceholders && isAsset(entry.path) && !isDemo(entry.path)) {
+        problems.push({ file: entry.path, message: acceptedMessage(entry.path), warning: true });
+        continue;
+      }
       problems.push({ file: entry.path, message: fileMessage(entry.path) });
     }
   }

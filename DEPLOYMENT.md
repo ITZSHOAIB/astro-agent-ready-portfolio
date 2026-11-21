@@ -13,6 +13,8 @@ Whatever the host, use these settings:
 
 Set `site.url` in `content/site.ts` to the address the site will live at, because canonical links, feeds and the sitemap are built from it.
 
+For a preview or demo deploy on another address, set the `SITE_URL` environment variable on the host (for example `SITE_URL=https://my-portfolio.pages.dev`). It overrides `site.url` for that build only, so the links point at the deploy itself.
+
 ## Cloudflare Pages or Netlify
 
 Import the repo, then use the settings above. Both hosts read `dist/_redirects`, which the build writes from the `aliases` field of renamed posts, and `_headers` (from `content/public/`), which lets browsers cache the hashed files in `/_astro/` for a year.

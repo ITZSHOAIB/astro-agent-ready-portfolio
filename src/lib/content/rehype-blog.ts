@@ -53,8 +53,12 @@ export function rehypeCallouts() {
       if (first.children.every((child) => !textContent(child).trim())) {
         node.children.splice(node.children.indexOf(first), 1);
       }
-      node.tagName = "aside";
-      node.properties = { className: ["callout", `callout-${match[1].toLowerCase()}`] };
+      // A note, not an <aside>: a complementary landmark inside <main> is flagged by axe.
+      node.tagName = "div";
+      node.properties = {
+        className: ["callout", `callout-${match[1].toLowerCase()}`],
+        role: "note",
+      };
       node.children.unshift(
         el("p", { className: ["callout-title"] }, [
           calloutIcon(match[1]),

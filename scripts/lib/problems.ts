@@ -5,6 +5,8 @@ export type Problem = {
   field?: string;
   /** What is wrong and what to do about it. */
   message: string;
+  /** Accepted for now (a placeholder under --allow-placeholders), so it does not fail the check. */
+  warning?: boolean;
 };
 
 export const formatProblem = ({ file, field, message }: Problem) =>

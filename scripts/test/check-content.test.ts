@@ -131,6 +131,8 @@ test("--allow-placeholders accepts an untouched asset but not an untouched data 
   assert.match(strict.out, /me\.jpg: is still the placeholder file.*--allow-placeholders/);
   const allowed = check(root, "--allow-placeholders");
   assert.equal(allowed.code, 0, allowed.out);
+  assert.match(allowed.out, /check-content: ok/);
+  assert.match(allowed.out, /Placeholders still in place[\s\S]*me\.jpg: is still the placeholder image of the example person/);
 });
 
 test("--allow-placeholders still reports untouched demo artwork", () => {
