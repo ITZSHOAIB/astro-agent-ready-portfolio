@@ -14,7 +14,7 @@ An Astro theme · Tailwind · fully static · a blog and `llms.txt` built in.
 
 <sub>Placeholder content (Alex Rivera). Everything you see is replaced by your own.</sub>
 
-[**Use this template**](../../generate) · [Setup guide](SETUP.md) · [Agent runbook](AGENTS.md) · [Deploy](DEPLOYMENT.md)
+[**Use this template**](../../generate) · [Setup guide](SETUP.md) · [Agent runbook](RUNBOOK.md) · [Deploy](DEPLOYMENT.md)
 
 </div>
 
@@ -22,11 +22,17 @@ An Astro theme · Tailwind · fully static · a blog and `llms.txt` built in.
 
 ## Set it up with your coding agent
 
-Open the folder in Claude Code, Codex, Cursor or any agent that reads `AGENTS.md`, and say:
+In an empty folder, open Claude Code, Codex, Cursor, Gemini CLI or any coding agent and say:
 
-> Set this up as my portfolio. Follow AGENTS.md.
+> Build my portfolio with the Astro theme github.com/ITZSHOAIB/astro-agent-ready-portfolio. Create it with `pnpm create astro@latest my-portfolio --template ITZSHOAIB/astro-agent-ready-portfolio --install --no-git --no-ai --skip-houston --yes`, then follow its RUNBOOK.md.
 
-The agent interviews you (name, links, work history, skills), fills in `content/`, deletes the placeholders, and runs one command that tells it exactly what is still wrong. When it is done it hands you the few steps only you can do: push to GitHub, connect a host, point your domain.
+Already have a copy? Open that folder and say:
+
+> Set this up as my portfolio. Follow RUNBOOK.md.
+
+Attach your resume, LinkedIn export or old site and the agent takes your details from it, shows you what it will publish, and leaves out private details such as your phone number. Otherwise it interviews you (name, links, work history, skills), fills in `content/`, deletes the placeholders, and runs one command that tells it exactly what is still wrong. When it is done it hands you the few steps only you can do: push to GitHub, connect a host, point your domain.
+
+Later, the same agent keeps the site up to date: "write a post about X", "add my new job", "add this project". `RUNBOOK.md` tells it how, and `pnpm verify` checks the result.
 
 No account, API key or CMS is involved. Your site is a folder of Markdown and typed data files.
 
@@ -83,6 +89,8 @@ You need Node 24 and pnpm. Start a new site from the theme:
 pnpm create astro@latest --template ITZSHOAIB/astro-agent-ready-portfolio
 ```
 
+The command asks a few questions. Scripts and agents can skip them: `pnpm create astro@latest my-portfolio --template ITZSHOAIB/astro-agent-ready-portfolio --install --no-git --no-ai --skip-houston --yes`.
+
 Then, inside the new folder:
 
 ```sh
@@ -127,6 +135,8 @@ The build is plain static files in `dist/`, so any static host works. Use `pnpm 
 ## FAQ
 
 **Do I need to use an agent?** No. Every step works by hand; the agent just removes the typing.
+
+**Which agents work?** Any that can edit files and run commands. The instructions live in `RUNBOOK.md`. `AGENTS.md` (Codex, Cursor, GitHub Copilot and most others), `CLAUDE.md` (Claude Code) and `GEMINI.md` (Gemini CLI) all point to it, so every agent finds the same runbook. `pnpm create astro` replaces `AGENTS.md` with Astro's generic one unless you pass `--no-ai`; the runbook is a separate file, so it survives either way. If in doubt, tell the agent to follow `RUNBOOK.md`.
 
 **Why no CMS?** Your content is a few Markdown and TypeScript files in git, which an agent or an editor can change and `check-content` can verify. A CMS would add an account, a service and a second source of truth.
 
