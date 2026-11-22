@@ -2,7 +2,7 @@
   "name": "astro-agent-ready-portfolio",
   "private": true,
   "version": "0.0.1",
-  "description": "An Astro portfolio theme you can set up with a coding agent: Markdown content, a blog and llms.txt, builds to static files.",
+  "description": "An Astro portfolio theme AI agents can read: Ask AI about me, llms.txt and a Markdown copy of every post. Your coding agent can set it up. Builds to static files.",
   "keywords": [
     "astro",
     "astro-theme",
