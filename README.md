@@ -2,8 +2,8 @@
 
 # astro-agent-ready-portfolio
 
-**A portfolio you set up by editing files, or by asking your coding agent to do it.**<br>
-An Astro theme · Tailwind · fully static · a blog and `llms.txt` built in.
+**A portfolio AI agents can read, and your coding agent can set up.**<br>
+An Astro theme · Tailwind · fully static · Ask AI, `llms.txt` and a blog built in.
 
 [![MIT licence](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE)
 ![Astro 7](https://img.shields.io/badge/Astro-7-bc52ee)
@@ -19,6 +19,18 @@ An Astro theme · Tailwind · fully static · a blog and `llms.txt` built in.
 </div>
 
 ---
+
+## Built for AI readers
+
+More people now ask an assistant about you than read your site. This theme gives the assistant your real work to read.
+
+<div align="center">
+<img src="docs/screenshots/ask-ai.webp" alt="The Ask AI about me dialog: question tabs (Quick summary, Notable work, Fit for a role, Interview prep), buttons for Claude, ChatGPT and Gemini, and the prompt it sends" width="576">
+</div>
+
+- **Ask AI about me.** One click opens Claude or ChatGPT with your portfolio as context and a question already typed: a quick summary, notable work, fit for a role, or interview prep. Gemini cannot be prefilled, so its button copies the prompt.
+- **`/llms.txt` and `/llms-full.txt`.** Who you are, your work and every post as one Markdown file, generated from your content.
+- **A `.md` version of every post,** so an agent reads your writing without scraping HTML. On a post, readers can also select a passage and ask Claude or ChatGPT about it.
 
 ## Set it up with your coding agent
 
@@ -42,7 +54,7 @@ No account, API key or CMS is involved. Your site is a folder of Markdown and ty
 
 ```text
 $ pnpm check-content
-check-content: 19 problems
+check-content: 40 problems
 
 - content/site.ts: site.url is still the starter value "https://alex-rivera.example". Replace it with your own.
 - content/site.ts: site.name is still the starter value "Alex Rivera". Replace it with your own.
@@ -69,8 +81,7 @@ When the list is empty it prints `check-content: ok`. It also catches broken lin
 
 - **Content as files.** Prose in Markdown, structured data (experience, skills, projects) as typed TypeScript with a comment above every field.
 - **Blog.** Markdown posts, tags, RSS and JSON feeds, reading progress, generated Open Graph images, redirects for renamed posts.
-- **Written for AI readers too.** `/llms.txt`, `/llms-full.txt` and a `.md` version of every post, so an agent can read your portfolio without scraping HTML.
-- **Ask AI.** Buttons that open Claude or ChatGPT with a prefilled question about you.
+- **Built for AI readers.** Ask AI about me, `llms.txt`, `llms-full.txt` and a `.md` version of every post ([above](#built-for-ai-readers)).
 - **Fully static.** Every page is built ahead of time; no server, no functions. Analytics are optional and cookie-free (Cloudflare Web Analytics).
 - **Switches, not forks.** Every feature is a flag in `content/site.ts`, plus an `accent` colour.
 - **Safe to automate.** `pnpm verify` runs type checks, tests, the content check and a production build.
