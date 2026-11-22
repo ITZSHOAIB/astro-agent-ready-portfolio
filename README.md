@@ -10,11 +10,11 @@ An Astro theme · Tailwind · fully static · a blog and `llms.txt` built in.
 ![Tailwind 4](https://img.shields.io/badge/Tailwind-4-38bdf8)
 ![Static](https://img.shields.io/badge/output-static-22c55e)
 
-<img src="docs/screenshots/home.webp" alt="The portfolio home page with the placeholder person Alex Rivera: name, role, links, and a selected-work section" width="860">
+<a href="https://astro-agent-ready-portfolio.sohab.dev"><img src="docs/screenshots/home.webp" alt="The portfolio home page with the placeholder person Alex Rivera: name, role, links, and a selected-work section" width="860"></a>
 
 <sub>Placeholder content (Alex Rivera). Everything you see is replaced by your own.</sub>
 
-[**Use this template**](../../generate) · [Setup guide](SETUP.md) · [Agent runbook](RUNBOOK.md) · [Deploy](DEPLOYMENT.md)
+[**Live demo**](https://astro-agent-ready-portfolio.sohab.dev) · [**Use this template**](../../generate) · [Setup guide](SETUP.md) · [Agent runbook](RUNBOOK.md) · [Deploy](DEPLOYMENT.md)
 
 </div>
 
